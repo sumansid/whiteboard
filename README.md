@@ -1,3 +1,3 @@
-# Shareable whiteboard 📝
+# whiteboard 📝
 
-shareable whiteboard made with web sockets
+A minimalist, realtime, shareable whiteboard made using web sockets, Node js, HTML, CSS and Javascript
