@@ -23,6 +23,9 @@
       #whiteboard{
         display: none;
       }
+      canvas {
+      border-radius: 12px;
+    }
 
     </style>
 
@@ -39,9 +42,24 @@
   
 </div>
 
-<div id="whiteboard">
+
+
+<div id="whiteboard" align="center">
   <h1>Room code: <span id="newRoomCode"></span></h1>
 
+
+
+   <div class="color">
+      <label for="penColor">Color</label>
+      <input type="color" id="penColor" value="#000">
+    </div>
+
+    <div class="size">
+      <label for="penSize">Size</label>
+      <input type="range" id="penSize" min="1" max="50">
+    </div>
+    <div id="mainCanvas">
+  </div>
 
 
 </div>
