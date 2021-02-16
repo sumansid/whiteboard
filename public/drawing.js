@@ -51,21 +51,21 @@ function setup() {
 
 function newChanges(data){
     noStroke();
-    fill(6,6,6);
-    ellipse(data.x, data.y, 30, 30);
-
+    fill(data.color);
+    ellipse(data.x, data.y, data.size, data.size);
 }
 
 function mouseDragged(){
+    var penColor = document.getElementById("penColor").value;
+    var penSize = document.getElementById("penSize").value;
     if (started){
         var data = {
             x: mouseX,
-            y: mouseY
+            y: mouseY,
+            size: penSize,
+            color: penColor
         };
         socket.emit("mouse", data);
-        var penColor = document.getElementById("penColor").value;
-        var penSize = document.getElementById("penSize").value;
-
         noStroke();
         fill(penColor);
         ellipse(mouseX, mouseY, penSize, penSize);
