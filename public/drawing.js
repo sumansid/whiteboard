@@ -9,13 +9,15 @@ var primaryScreen = document.getElementById('primaryScreen');
 var newRoom = document.getElementById("createRoom");
 var joinRoomBtn = document.getElementById("joinRoom");
 var generatedRoomCode = document.getElementById("newRoomCode");
-//socket.on("roomCode", handleNewRoom);
-newRoom.addEventListener("click", newBoard);
+
+newRoom.addEventListener("click", handleNewRoom);
 joinRoomBtn.addEventListener('click', joinExistingRoom);
+socket = io.connect("http://localhost:3000");
+socket.on("createNewRoom", handleNewRoom);
+socket.on("roomCode",handleRoomCode);
 
 
 function newBoard(){
-    socket.emit("newWhiteBoard");
     started = true;
     primaryScreen.style.display = "none";
     whiteboardDiv.style.display = "block";
@@ -24,15 +26,24 @@ function newBoard(){
 function joinExistingRoom(){
     var roomCode = document.getElementById("roomCode").value;
     socket.emit("joinRoom", roomCode);
-    primaryScreen.style.display = "none";
-    whiteboardDiv.style.display = "block";
+    newBoard();
 
 }
 
 
-function handleNewRoom(roomCode){
+function handleNewRoom(){
+    socket.emit("createNewRoom");
+    newBoard();
+    //generatedRoomCode.innerText = roomCode;
+
+}
+
+function handleRoomCode(roomCode){
     generatedRoomCode.innerText = roomCode;
 }
+
+
+
 
 
 
@@ -42,8 +53,6 @@ function setup() {
     let canvas = createCanvas(1200, 800);
     canvas.parent("mainCanvas");
     background(222,222,222);
-
-    socket = io.connect("http://localhost:3000");
     socket.on('mouse', newChanges);
       
 }
