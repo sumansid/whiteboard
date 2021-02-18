@@ -2,7 +2,7 @@
 
 A minimalist, realtime, shareable whiteboard. Built using web sockets, Node js, HTML, CSS and Javascript
 
-
+[![HitCount](http://hits.dwyl.com/sumansid/whiteboard.svg)](http://hits.dwyl.com/sumansid/whiteboard)
 
 
 
