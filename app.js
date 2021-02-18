@@ -1,6 +1,5 @@
 var express = require('express');
 var app = express();
-const state = {};
 const roomLookup = {};
 
 app.use(express.static("public"));
