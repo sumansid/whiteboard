@@ -9,28 +9,33 @@ var primaryScreen = document.getElementById('primaryScreen');
 var newRoom = document.getElementById("createRoom");
 var joinRoomBtn = document.getElementById("joinRoom");
 var generatedRoomCode = document.getElementById("newRoomCode");
-
+var roomDisplayTag = document.getElementById("roomDisplayTag");
 
 newRoom.addEventListener("click", handleNewRoom);
 joinRoomBtn.addEventListener('click', joinExistingRoom);
+
+
+// Initialize socket in client side
 socket = io.connect("http://localhost:3000");
 socket.on("createNewRoom", handleNewRoom);
 socket.on("roomCode",handleRoomCode);
 socket.on("init", handleinit);
-
 socket.on('mouse', newChanges);
+socket.on("displayCurrentRoom", handleDisplayCurrentRoom);
+
 
 function handleinit(){
     console.log("handle init triggered");
 }
 
-
+function handleDisplayCurrentRoom(currentRoomID){
+    roomDisplayTag.innerHTML = "Current Room: <span>"+ currentRoomID+" </span>";
+}
 
 
 function init(){
     primaryScreen.style.display = "none";
     whiteboardDiv.style.display = "block";
-    
 
 }
 
