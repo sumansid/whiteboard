@@ -6,6 +6,9 @@ A minimalist, realtime, shareable whiteboard. Built using web sockets, Node js, 
 
 
 
+![ezgif com-gif-maker (11)](https://user-images.githubusercontent.com/53033648/108430868-0a225f00-7210-11eb-80ae-7fa2749626bc.gif)
+
+
 
 To do :
 
