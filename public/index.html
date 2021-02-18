@@ -10,7 +10,7 @@
     <script src="drawing.js" type="text/javascript" charset="utf-8" async defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.1/socket.io.js" type="text/javascript" charset="utf-8" async defer></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
-    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="http://localhost:3000/socket.io/socket.io.js" type="text/javascript" charset="utf-8" async defer></script>
 
 
 
@@ -66,17 +66,16 @@
 </div>
 
 <div class="container" id="primaryScreen">
-  <div class="text-center">
-       <button type="button" id="createRoom" class="btn btn-primary">Create new Room</button>
-    
+  <div class="text-center" id="createRoom">
+       <button type="button" id="createRoomBtn" class="btn btn-primary">Create new Room</button>
   </div>
-  <form>
- <div class="form-group">
+  
+ <div>
     <label for="formGroupExampleInput">Join existing room</label>
     <input type="text" id="roomCode" class="form-control" id="formGroupExampleInput" placeholder="Enter room code">
   </div>
   <button type="submit" id="joinRoom" class="btn btn-primary">Join</button>
-</form>
+
 
  
 </div>

@@ -10,30 +10,43 @@ var newRoom = document.getElementById("createRoom");
 var joinRoomBtn = document.getElementById("joinRoom");
 var generatedRoomCode = document.getElementById("newRoomCode");
 
+
 newRoom.addEventListener("click", handleNewRoom);
 joinRoomBtn.addEventListener('click', joinExistingRoom);
 socket = io.connect("http://localhost:3000");
 socket.on("createNewRoom", handleNewRoom);
 socket.on("roomCode",handleRoomCode);
+socket.on("init", handleinit);
+
+socket.on('mouse', newChanges);
+
+function handleinit(){
+    console.log("handle init triggered");
+}
 
 
-function newBoard(){
-    started = true;
+
+
+function init(){
     primaryScreen.style.display = "none";
     whiteboardDiv.style.display = "block";
+    
+
 }
 
 function joinExistingRoom(){
     var roomCode = document.getElementById("roomCode").value;
+    console.log('roomCode about to join client side', roomCode)
     socket.emit("joinRoom", roomCode);
-    newBoard();
+    init();
 
 }
 
 
 function handleNewRoom(){
     socket.emit("createNewRoom");
-    newBoard();
+    
+    init();
     //generatedRoomCode.innerText = roomCode;
 
 }
@@ -43,18 +56,21 @@ function handleRoomCode(roomCode){
 }
 
 
-
-
+function start(){
+    started = true;
+}
 
 
 // Functions for setting up canvas
-function setup() {
 
+
+function setup() {
+    
     let canvas = createCanvas(1200, 800);
     canvas.parent("mainCanvas");
     background(222,222,222);
-    socket.on('mouse', newChanges);
-      
+    //socket.on('mouse', newChanges);
+        
 }
 
 
@@ -64,9 +80,11 @@ function newChanges(data){
     ellipse(data.x, data.y, data.size, data.size);
 }
 
+
 function mouseDragged(){
     var penColor = document.getElementById("penColor").value;
     var penSize = document.getElementById("penSize").value;
+    started = true;
     if (started){
         var data = {
             x: mouseX,
