@@ -2,7 +2,7 @@
 
 [![HitCount](http://hits.dwyl.com/sumansid/whiteboard.svg)](http://hits.dwyl.com/sumansid/whiteboard)
 
-A minimalist, realtime, shareable whiteboard. Built using web sockets, Node js, HTML, CSS and Javascript
+A minimalist, realtime, shareable whiteboard.(inspired by Clubhouse) Built using web sockets, Node js, HTML, CSS and Javascript
 
 
 
@@ -12,7 +12,7 @@ A minimalist, realtime, shareable whiteboard. Built using web sockets, Node js, 
 
 To do :
 
-1. Add voice sharing feature (Clubhouse inspired).
+1. Add voice sharing feature.
 
 2. Add more features to the canvas. (eg. lines, eraser etc.)
 
