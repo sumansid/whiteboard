@@ -18,5 +18,4 @@ To do :
 
 3. Add number of participants in current session.
 
-
 Deployed to heroku : https://blooming-cove-63961.herokuapp.com/
