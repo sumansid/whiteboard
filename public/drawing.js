@@ -6,7 +6,7 @@ var started = false;
 var whiteboardDiv = document.getElementById("whiteboard");
 var primaryScreen = document.getElementById('primaryScreen');
 
-var newRoom = document.getElementById("createRoom");
+var newRoom = document.getElementById("createRoomBtn");
 var joinRoomBtn = document.getElementById("joinRoom");
 var generatedRoomCode = document.getElementById("newRoomCode");
 var roomDisplayTag = document.getElementById("roomDisplayTag");
@@ -16,7 +16,7 @@ joinRoomBtn.addEventListener('click', joinExistingRoom);
 
 
 // Initialize socket in client side
-socket = io.connect("http://localhost:3000");
+socket = io.connect("https://blooming-cove-63961.herokuapp.com");
 socket.on("createNewRoom", handleNewRoom);
 socket.on("roomCode",handleRoomCode);
 socket.on("init", handleinit);
@@ -74,8 +74,6 @@ function setup() {
     let canvas = createCanvas(1200, 800);
     canvas.parent("mainCanvas");
     background(222,222,222);
-    //socket.on('mouse', newChanges);
-        
 }
 
 
